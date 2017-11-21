@@ -5,9 +5,9 @@
 // You're free to add application-wide JavaScript to this file, but it's generally better
 // to create separate JavaScript files as needed.
 //
-//= require jquery-2.2.0.min
-//= require bootstrap
-//= require_tree .
+//= require jquery-3.2.1.min
+//= require popper-1.12.3.min
+//= require bootstrap-4.0.0-beta2.min
 //= require_self
 
 if (typeof jQuery !== 'undefined') {
