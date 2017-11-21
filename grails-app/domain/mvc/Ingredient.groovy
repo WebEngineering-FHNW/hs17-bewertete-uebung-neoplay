@@ -9,7 +9,7 @@ class Ingredient {
 
     static constraints = {
         quantity(scale: 6)
-        unit(blank: false, size: 20)
-        name(blank: false, size: 2..50)
+        unit(blank: false)
+        name(blank: false)
     }
 }
