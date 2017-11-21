@@ -21,7 +21,7 @@
             <span>Kochbuch APP</span>
         </a>
         <span class="navbar-text">
-            <a href="/admin" class="btn btn-outline-secondary"><i class="fa fa-cog"></i></a>
+            <a href="/recipe/list" class="btn btn-outline-secondary"><i class="fa fa-cog"></i></a>
             <a href="#" class="btn btn-outline-warning" data-toggle="modal" data-target="#searchModal"><i class="fa fa-search"></i></a>
         </span>
     </nav>

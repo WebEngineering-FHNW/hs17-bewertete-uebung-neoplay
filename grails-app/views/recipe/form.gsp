@@ -8,7 +8,7 @@
 
     <h3>Rezept erfassen/bearbeiten</h3>
 
-    <form action="/admin/form" method="post" class="mb-3">
+    <form action="/recipe/form" method="post" class="mb-3">
         <div class="form-group">
             <label for="titel">Titel</label>
             <input type="text" class="form-control" id="titel" name="titel">
@@ -131,7 +131,7 @@
     </form>
 
     <p>
-        <a href="/admin" class="btn btn-outline-primary"><i class="fa fa-chevron-left"></i> zurück</a>
+        <a href="/recipe/list" class="btn btn-outline-primary"><i class="fa fa-chevron-left"></i> zurück</a>
     </p>
 
 </body>

@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="card mb-3">
-                <a href="/details">
+                <a href="/recipe/view">
                     <asset:image src="rezepte/example-1.jpg" class="card-img-top" alt="Card image cap"/>
                 </a>
                 <div class="img-stars">
@@ -20,7 +20,7 @@
                     <i class="fa fa-star-o"></i>
                 </div>
                 <div class="card-body">
-                    <h4><a href="/details">Rezepttitel</a></h4>
+                    <h4><a href="/recipe/view">Rezepttitel</a></h4>
                     <h6>Kategorie</h6>
                     <div class="row">
                         <div class="col-6">
@@ -30,7 +30,7 @@
                             <p><i class="fa fa-clock-o"></i> 30 Min.</p>
                         </div>
                     </div>
-                    <a href="/details" class="btn btn-outline-primary">Zum Rezept</a>
+                    <a href="/recipe/view" class="btn btn-outline-primary">Zum Rezept</a>
                 </div>
             </div>
         </div>
