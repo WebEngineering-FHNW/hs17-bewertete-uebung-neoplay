@@ -67,13 +67,6 @@
                 <p> Localhost: ${ InetAddress.getLocalHost() }</p>
                 <h2>Available Controllers:</h2>
                 <ul>
-                <!-- todo: uncomment link to booking controller search action -->
-                <!--
-                    <li class="controller">
-                        <g:link controller="booking" action="search">Booking search page</g:link>
-                    </li>
-                  -->
-
                     <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
                         <li class="controller">
                             <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
