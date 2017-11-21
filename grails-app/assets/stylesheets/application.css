@@ -8,8 +8,6 @@
 * compiled file, but it's generally better to create a new file per style scope.
 *
 *= require bootstrap-4.0.0-beta2.min
-*= require https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
-*= require grails
-*= require main
+*= require kochbuch
 *= require_self
 */

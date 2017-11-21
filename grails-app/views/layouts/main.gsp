@@ -1,48 +1,57 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>
-        <g:layoutTitle default="Grails"/>
+        <g:layoutTitle default="Kochbuch APP"/>
     </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <asset:stylesheet src="application.css"/>
 
     <g:layoutHead/>
 </head>
 <body>
 
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/#">
-                    <i class="fa grails-icon">
-                        <asset:image src="grails-cupsonly-logo-white.svg"/>
-                    </i> Grails
-                </a>
-            </div>
-            <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
-                <ul class="nav navbar-nav navbar-right">
-                    <g:pageProperty name="page.nav" />
-                </ul>
-            </div>
-        </div>
+    <nav class="navbar sticky-top navbar-dark bg-dark mb-3">
+        <a class="navbar-brand" href="/">
+            <asset:image src="kochbuch-logo.svg" alt="Kochbuch APP"/>
+            <span>Kochbuch APP</span>
+        </a>
+        <span class="navbar-text">
+            <a href="/admin" class="btn btn-outline-secondary"><i class="fa fa-cog"></i></a>
+            <a href="#" class="btn btn-outline-warning" data-toggle="modal" data-target="#searchModal"><i class="fa fa-search"></i></a>
+        </span>
+    </nav>
+
+    <div class="container-fluid">
+
+        <g:layoutBody/>
+
     </div>
 
-    <g:layoutBody/>
-
-    <div class="footer" role="contentinfo"></div>
-
-    <div id="spinner" class="spinner" style="display:none;">
-        <g:message code="spinner.alt" default="Loading&hellip;"/>
+    <!-- Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog">
+            <form action="/" method="get">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Suche</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" name="search" placeholder="Suche nach..." class="form-control">
+                    </div>
+                    <div class="modal-footer flex-start">
+                        <button type="submit" class="btn btn-warning"><i class="fa fa-search"></i> Suche starten</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 
     <asset:javascript src="application.js"/>

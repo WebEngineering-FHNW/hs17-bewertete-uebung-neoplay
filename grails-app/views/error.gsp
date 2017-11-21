@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title><g:if env="development">Grails Runtime Exception</g:if><g:else>Error</g:else></title>
+        <title><g:if env="development">Grails Runtime Exception</g:if><g:else>Kochbuch APP - Error</g:else></title>
         <meta name="layout" content="main">
         <g:if env="development"><asset:stylesheet src="errors.css"/></g:if>
     </head>
@@ -14,18 +14,18 @@
                 <g:renderException exception="${request.getAttribute('javax.servlet.error.exception')}" />
             </g:elseif>
             <g:else>
-                <ul class="errors">
-                    <li>An error has occurred</li>
-                    <li>Exception: ${exception}</li>
-                    <li>Message: ${message}</li>
-                    <li>Path: ${path}</li>
-                </ul>
+                <div class="alert alert-danger">
+                    An error has occurred<br/>
+                    Exception: ${exception}<br/>
+                    Message: ${message}<br/>
+                    Path: ${path}
+                </div>
             </g:else>
         </g:if>
         <g:else>
-            <ul class="errors">
-                <li>An error has occurred</li>
-            </ul>
+            <div class="alert alert-danger">
+               An error has occurred
+            </div>
         </g:else>
     </body>
 </html>

@@ -9,13 +9,3 @@
 //= require popper-1.12.3.min
 //= require bootstrap-4.0.0-beta2.min
 //= require_self
-
-if (typeof jQuery !== 'undefined') {
-    (function($) {
-        $(document).ajaxStart(function() {
-            $('#spinner').fadeIn();
-        }).ajaxStop(function() {
-            $('#spinner').fadeOut();
-        });
-    })(jQuery);
-}

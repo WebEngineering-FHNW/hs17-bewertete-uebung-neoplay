@@ -1,14 +1,13 @@
 <!doctype html>
 <html>
     <head>
-        <title>Page Not Found</title>
+        <title>Kochbuch APP - Page Not Found</title>
         <meta name="layout" content="main">
-        <g:if env="development"><asset:stylesheet src="errors.css"/></g:if>
     </head>
     <body>
-        <ul class="errors">
-            <li>Error: Page Not Found (404)</li>
-            <li>Path: ${request.forwardURI}</li>
-        </ul>
+        <div class="alert alert-danger">
+            Error: Page Not Found (404)<br/>
+            Path: ${request.forwardURI}
+        </div>
     </body>
 </html>
