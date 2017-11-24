@@ -26,8 +26,9 @@ Zusätzliche Abhängigkeiten: Bootstrap, jQuery
 
 ## Project confirmation
 
-< to be filled by lecturer >
+Confirmed.
 
+Sounds delicious! Can't wait to see the bootstrap data :-)
 
 ## Project delivery <to be filled by student>
 
