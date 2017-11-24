@@ -26,6 +26,6 @@ class Recipe {
         difficulty(blank: false)
         numPeople(range:1..100)
         stars(min: 1, max: 5)
-        preparation(blank: true)
+        preparation(blank: true) // widget: 'textarea'
     }
 }

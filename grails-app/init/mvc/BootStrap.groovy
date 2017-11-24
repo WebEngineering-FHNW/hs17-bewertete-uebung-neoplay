@@ -11,7 +11,7 @@ class BootStrap {
 
         // recipes
         Recipe r1 = save(new Recipe(category: "Vorspeise", photo: "example-1.jpg", title: "Lasagne", preparationTime: 10, cookingTime: 30, difficulty: "einfach", numPeople: 2, stars: 3, preparation: "blubb"))
-        Recipe r2 = save(new Recipe(category: "Hauptspeise", photo: "example-2.jpg", title: "Spaghetti", preparationTime: 35, cookingTime: 20, difficulty: "schwer", numPeople: 4, stars: 2, preparation: "blaaa"))
+        Recipe r2 = save(new Recipe(category: "Hauptspeise (Fleisch)", photo: "example-2.jpg", title: "Spaghetti", preparationTime: 35, cookingTime: 20, difficulty: "schwer", numPeople: 4, stars: 2, preparation: "blaaa"))
 
         // ingredients
         Ingredient i1 = save(new Ingredient(quantity: new BigDecimal(1), unit: "Stk", name: "Ei", recipe: r1))

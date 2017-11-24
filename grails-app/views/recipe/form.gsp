@@ -8,45 +8,32 @@
 
     <h3>Rezept erfassen/bearbeiten</h3>
 
-    <form action="/recipe/form" method="post" class="mb-3">
+    <g:form action="form" id="${rec.id}" class="mb-3">
         <div class="form-group">
-            <label for="titel">Titel</label>
-            <input type="text" class="form-control" id="titel" name="titel">
+            <label for="title">Titel</label>
+            <g:textField name="title" id="title" class="form-control" value="${rec.title}"/>
         </div>
         <div class="form-group">
-            <label for="kategorie">Kategorie</label>
-            <select class="form-control" id="kategorie" name="kategorie">
-                <option value="Vorspeise">Vorspeise</option>
-                <option value="Hauptspeise">Hauptspeise</option>
-                <option value="Dessert">Dessert</option>
-            </select>
+            <label for="category">Kategorie</label>
+            <g:select name="category" id="category" class="form-control" from="${categories}" value="${rec.category}" />
         </div>
         <div class="form-group">
             <label for="zubereitungszeit">Zubereitungszeit</label>
-            <div class="input-group">
-                <input type="number" class="form-control" id="zubereitungszeit" name="zubereitungszeit">
-                <div class="input-group-addon">Min.</div>
-            </div>
+            <mvc:timeField id="preparationTime" name="preparationTime" class="form-control" value="${rec.preparationTime}" min="0" max="1000" />
         </div>
         <div class="form-group">
             <label for="kochzeit">Kochzeit</label>
-            <div class="input-group">
-                <input type="number" class="form-control" id="kochzeit" name="kochzeit">
-                <div class="input-group-addon">Min.</div>
-            </div>
+            <mvc:timeField id="cookingTime" name="cookingTime" class="form-control" value="${rec.cookingTime}" min="0" max="1000" />
         </div>
         <div class="form-group">
-            <label for="schwierigkeit">Schwierigkeit</label>
-            <select class="form-control" id="schwierigkeit" name="schwierigkeit">
-                <option value="einfach">einfach</option>
-                <option value="mittel">mittel</option>
-                <option value="schwer">schwer</option>
-            </select>
+            <label for="difficulty">Schwierigkeit</label>
+            <g:select name="difficulty" id="difficulty" class="form-control" from="${difficulties}" value="${rec.difficulty}" />
         </div>
         <div class="form-group">
-            <label for="personen">Anzahl Personen</label>
-            <input type="number" class="form-control" id="personen" name="personen">
+            <label for="numPeople">Anzahl Personen</label>
+            <mvc:numericField id="numPeople" name="numPeople" class="form-control" value="${rec.numPeople}" min="0" max="100" />
         </div>
+        <%-- TODO zutaten --%>
         <div class="form-row">
             <div class="form-group col-3 mb-0">
                 <label>Menge</label>
@@ -113,22 +100,16 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="zubereitung">Zubereitung</label>
-            <textarea class="form-control" id="zubereitung" name="zubereitung" rows="8"></textarea>
+            <label for="preparation">Zubereitung</label>
+            <g:textArea class="form-control" id="zubereitung" name="zubereitung" value="${rec.preparation}" rows="8"/>
             <small class="form-text text-muted">Zwei Zeilenumbrüche entspricht einem Zubereitungsschritt</small>
         </div>
         <div class="form-group">
-            <label for="bewertung">Bewertung</label>
-            <select class="form-control" id="bewertung" name="bewertung">
-                <option value="1">&#9733;&#9734;&#9734;&#9734;&#9734;</option>
-                <option value="2">&#9733;&#9733;&#9734;&#9734;&#9734;</option>
-                <option value="3">&#9733;&#9733;&#9733;&#9734;&#9734;</option>
-                <option value="4">&#9733;&#9733;&#9733;&#9733;&#9734;</option>
-                <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
-            </select>
+            <label for="stars">Bewertung</label>
+            <g:select name="stars" id="stars" class="form-control" from="${starsDropdown}" optionKey="key" optionValue="value" value="${rec.stars}" />
         </div>
         <button type="submit" class="btn btn-block btn-primary">Speichern</button>
-    </form>
+    </g:form>
 
     <p>
         <a href="/recipe/list" class="btn btn-outline-primary"><i class="fa fa-chevron-left"></i> zurück</a>

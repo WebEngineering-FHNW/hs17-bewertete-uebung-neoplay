@@ -19,12 +19,17 @@ class RecipeController {
 
     // Show all (Backend)
     def list() {
-
+        def recs = Recipe.list()
+        [recs: recs]
     }
 
     // Add/Edit (Backend)
     def form() {
-
+        def rec = Recipe.get(params.id)
+        def categories = ["Vorspeise","Suppe","Salat","Snack","Hauptspeise (Fleisch)","Hauptspeise (vegetarisch)","Dessert","Getränk"]
+        def difficulties = ["einfach","mittel","schwer"]
+        def starsDropdown = [1:'\u2605\u2606\u2606\u2606\u2606',2:'\u2605\u2605\u2606\u2606\u2606',3:'\u2605\u2605\u2605\u2606\u2606',4:'\u2605\u2605\u2605\u2605\u2606',5:'\u2605\u2605\u2605\u2605\u2605']
+        [rec: rec, categories: categories, difficulties: difficulties, starsDropdown: starsDropdown]
     }
 
     // Delete (Backend)
