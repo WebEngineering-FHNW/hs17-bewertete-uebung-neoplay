@@ -2,38 +2,38 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Kochbuch APP - Frontend - Übersicht</title>
+    <title>Leckere Rezepte - Kochbuch APP</title>
 </head>
 <body>
 
     <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="card mb-3">
-                <a href="/recipe/view">
-                    <asset:image src="rezepte/example-1.jpg" class="card-img-top" alt="Card image cap"/>
-                </a>
-                <div class="img-stars">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <div class="card-body">
-                    <h4><a href="/recipe/view">Rezepttitel</a></h4>
-                    <h6>Kategorie</h6>
-                    <div class="row">
-                        <div class="col-6">
-                            <p><i class="fa fa-clock-o"></i> 25 Min.</p>
-                        </div>
-                        <div class="col-6">
-                            <p><i class="fa fa-clock-o"></i> 30 Min.</p>
-                        </div>
+        <g:each in="${recs}" var="rec">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card mb-3">
+                    <a href="/recipe/view?id=${rec.id}">
+                        <asset:image src="rezepte/${rec.photo}" class="card-img-top" alt="${rec.title}"/>
+                    </a>
+                    <div class="img-stars">
+                        <g:each in="${[0,1,2,3,4]}" var="num">
+                            <i class="fa fa-star<g:if test="${rec.stars <= num}">-o</g:if>"></i>
+                        </g:each>
                     </div>
-                    <a href="/recipe/view" class="btn btn-outline-primary">Zum Rezept</a>
+                    <div class="card-body">
+                        <h4><a href="/recipe/view?id=${rec.id}">${rec.title}</a></h4>
+                        <h6>${rec.category}</h6>
+                        <div class="row">
+                            <div class="col-6">
+                                <p><i class="fa fa-sign-language"></i> ${rec.preparationTime} Min.</p>
+                            </div>
+                            <div class="col-6">
+                                <p><i class="fa fa-fire"></i> ${rec.cookingTime} Min.</p>
+                            </div>
+                        </div>
+                        <a href="/recipe/view?id=${rec.id}" class="btn btn-outline-primary">Zum Rezept</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </g:each>
     </div>
 
     <div class="spinner">
