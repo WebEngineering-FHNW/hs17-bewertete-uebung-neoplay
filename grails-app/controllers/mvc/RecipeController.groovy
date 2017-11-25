@@ -1,8 +1,6 @@
 package mvc
 
-// controller inspired by https://medium.com/@victortorres/create-your-first-grails-application-without-scaffold-7e4c85c76156
-// and http://grails.asia/grails-tutorial-for-beginners-scaffolding/
-// gsp doc: https://gsp.grails.org/latest/guide/index.html
+// controller inspired by http://grails.asia/grails-tutorial-for-beginners-scaffolding/
 
 class RecipeController {
 
@@ -19,7 +17,12 @@ class RecipeController {
     // Show one (Frontend)
     def view() {
         def rec = Recipe.get(params.id)
-        [rec: rec]
+
+        // split content of textarea every two linebreaks
+        // EXTERNAL https://stackoverflow.com/questions/31608678/javaandroid-how-to-i-split-a-string-by-every-two-line-breaks
+        def preparationArr = rec.preparation.split("(\\r\\n|"+System.getProperty("line.separator")+")+")
+
+        [rec: rec, preparationArr: preparationArr]
     }
 
     // Show all (Backend)

@@ -6,32 +6,42 @@
 </head>
 <body>
 
-    <h3>Rezept <g:if test="${actionName == 'add'}">erfassen</g:if><g:else>bearbeiten</g:else></h3>
+    <h3>Rezept ${actionName == 'add' ? 'erfassen' : 'bearbeiten'}</h3>
+
+    <g:hasErrors bean="${rec}">
+        <div class="alert alert-danger">
+            <ul>
+                <g:eachError var="error" bean="${rec}">
+                    <li><g:message error="${error}"/></li>
+                </g:eachError>
+            </ul>
+        </div>
+    </g:hasErrors>
 
     <form action="" method="POST" class="mb-3" enctype="multipart/form-data">
         <div class="form-group">
             <label for="title">Titel</label>
-            <g:textField name="title" id="title" class="form-control" value="${rec.title}"/>
+            <g:textField name="title" id="title" class="form-control ${hasErrors(bean: rec, field: 'title', 'is-invalid')}" value="${rec.title}"/>
         </div>
         <div class="form-group">
             <label for="category">Kategorie</label>
-            <g:select name="category" id="category" class="form-control" from="${categories}" value="${rec.category}" />
+            <g:select name="category" id="category" class="form-control ${hasErrors(bean: rec, field: 'category', 'is-invalid')}" from="${categories}" value="${rec.category}" />
         </div>
         <div class="form-group">
-            <label for="zubereitungszeit">Zubereitungszeit</label>
-            <mvc:timeField id="preparationTime" name="preparationTime" class="form-control" value="${rec.preparationTime}" min="0" max="1000" />
+            <label for="preparationTime">Zubereitungszeit</label>
+            <mvc:timeField id="preparationTime" name="preparationTime" class="form-control ${hasErrors(bean: rec, field: 'preparationTime', 'is-invalid')}" value="${rec.preparationTime}" min="0" max="1000" />
         </div>
         <div class="form-group">
-            <label for="kochzeit">Kochzeit</label>
-            <mvc:timeField id="cookingTime" name="cookingTime" class="form-control" value="${rec.cookingTime}" min="0" max="1000" />
+            <label for="cookingTime">Kochzeit</label>
+            <mvc:timeField id="cookingTime" name="cookingTime" class="form-control ${hasErrors(bean: rec, field: 'cookingTime', 'is-invalid')}" value="${rec.cookingTime}" min="0" max="1000" />
         </div>
         <div class="form-group">
             <label for="difficulty">Schwierigkeit</label>
-            <g:select name="difficulty" id="difficulty" class="form-control" from="${difficulties}" value="${rec.difficulty}" />
+            <g:select name="difficulty" id="difficulty" class="form-control ${hasErrors(bean: rec, field: 'difficulty', 'is-invalid')}" from="${difficulties}" value="${rec.difficulty}" />
         </div>
         <div class="form-group">
             <label for="numPeople">Anzahl Personen</label>
-            <mvc:numericField id="numPeople" name="numPeople" class="form-control" value="${rec.numPeople}" min="0" max="100" />
+            <mvc:numericField id="numPeople" name="numPeople" class="form-control ${hasErrors(bean: rec, field: 'numPeople', 'is-invalid')}" value="${rec.numPeople}" min="0" max="100" />
         </div>
         <%-- TODO zutaten --%>
         <div class="form-row">
@@ -101,13 +111,14 @@
         </div>
         <div class="form-group">
             <label for="preparation">Zubereitung</label>
-            <g:textArea class="form-control" id="zubereitung" name="zubereitung" value="${rec.preparation}" rows="8"/>
+            <g:textArea class="form-control ${hasErrors(bean: rec, field: 'preparation', 'is-invalid')}" id="preparation" name="preparation" value="${rec.preparation}" rows="8"/>
             <small class="form-text text-muted">Zwei Zeilenumbrüche entspricht einem Zubereitungsschritt</small>
         </div>
         <div class="form-group">
             <label for="stars">Bewertung</label>
-            <g:select name="stars" id="stars" class="form-control" from="${starsDropdown}" optionKey="key" optionValue="value" value="${rec.stars}" />
+            <g:select name="stars" id="stars" class="form-control ${hasErrors(bean: rec, field: 'starsDropdown', 'is-invalid')}" from="${starsDropdown}" optionKey="key" optionValue="value" value="${rec.stars}" />
         </div>
+        <input type="hidden" name="photo" value="${!rec.photo ? 'example-1.jpg' : rec.photo}"/><%-- TODO upload --%>
         <button type="submit" class="btn btn-block btn-primary">Speichern</button>
     </form>
 

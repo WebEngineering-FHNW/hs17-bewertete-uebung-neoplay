@@ -7,7 +7,7 @@
 <body>
 
     <div class="detail-img mb-4">
-        <asset:image src="rezepte/${rec.photo}" class="img-fluid" alt="${rec.title}"/>
+        <asset:image src="rezepte/${rec.photo}" alt="${rec.title}"/>
         <div class="img-stars">
             <g:each in="${[0,1,2,3,4]}" var="num">
                 <i class="fa fa-star<g:if test="${rec.stars <= num}">-o</g:if>"></i>
@@ -53,22 +53,15 @@
         <div class="alert alert-secondary">Keine Zutaten</div>
     </g:else>
 
-    <h5 class="mt-4">Zubereitung</h5>
-
-    <%-- TODO linebreaks replacen mit step --%>
-    ${rec.preparation}
-
-    <div class="step">1.</div> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
-    <div class="clearfix"></div>
-
-    <div class="step">2.</div> At vero eos et accusam et justo duo dolores et ea rebum.
-    <div class="clearfix"></div>
-
-    <div class="step">3.</div> No sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-    <div class="clearfix"></div>
+    <g:if test="${preparationArr.size() > 0}">
+        <h5 class="mt-4">Zubereitung</h5>
+        <g:each in="${preparationArr}" var="step" status="cnt">
+            <div class="step">${cnt+1}.</div> ${step}
+            <div class="clearfix"></div>
+        </g:each>
+    </g:if>
 
     <a href="/" class="btn btn-outline-primary mt-4 mb-4"><i class="fa fa-chevron-left"></i> zurück</a>
-
 
 </body>
 </html>

@@ -12,6 +12,11 @@
 	position:relative;
 }
 
+.detail-img img {
+    width:100%;
+    height:auto;
+}
+
 .card .img-stars,
 .detail-img .img-stars {
 	position:absolute;
