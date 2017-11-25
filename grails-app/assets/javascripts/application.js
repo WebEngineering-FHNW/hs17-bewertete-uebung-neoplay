@@ -22,8 +22,7 @@ $().ready(function () {
         var row = $(this).closest('.form-row');
         var frm = $(row).closest('form');
         row.remove();
-        frm.append('<input type="hidden" name="ingredients['+index+'].deleted" value="true">')
-        console.log(frm);
+        frm.append('<input type="hidden" name="ingredients['+index+'].deleted" value="true">');
     });
 
     // Add Ingredient

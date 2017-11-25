@@ -8,7 +8,8 @@ class RecipeController {
 
     // Show all (Frontend)
     def index() {
-        def recs = Recipe.list()
+        def searchString = params.search ? params.search : ''
+        def recs = Recipe.findAllByTitleIlike('%'+searchString+'%')
         [recs: recs]
     }
 

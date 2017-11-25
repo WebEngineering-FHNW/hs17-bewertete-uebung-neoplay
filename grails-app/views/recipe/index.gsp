@@ -6,6 +6,13 @@
 </head>
 <body>
 
+    <g:if test="${params.search}">
+        <div class="alert alert-warning">
+            <span class="float-right"><a href="/" class="text-warning">alle anzeigen</a></span>
+            Suche nach '${raw(params.search)}'
+        </div>
+    </g:if>
+
     <div class="row">
         <g:each in="${recs}" var="rec">
             <div class="col-sm-12 col-md-6 col-lg-4">
