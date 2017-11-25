@@ -20,12 +20,12 @@ class Recipe {
     static constraints = {
         title(blank: false)
         photo(blank: true)
-        category(blank: false)
+        category(blank: false, inList: ["Vorspeise","Suppe","Salat","Snack","Hauptspeise (Fleisch)","Hauptspeise (vegetarisch)","Dessert","Getränk"])
         preparationTime(range: 0..1000)
         cookingTime(range: 0..1000)
-        difficulty(blank: false)
+        difficulty(blank: false, inList: ["einfach","mittel","schwer"])
         numPeople(range:1..100)
-        stars(min: 1, max: 5)
+        stars(min: 1, max: 5, inList: [1,2,3,4,5])
         preparation(blank: true) // widget: 'textarea'
     }
 }

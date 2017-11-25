@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             <label for="category">Kategorie</label>
-            <g:select name="category" id="category" class="form-control ${hasErrors(bean: rec, field: 'category', 'is-invalid')}" from="${categories}" value="${rec.category}" />
+            <g:select name="category" id="category" class="form-control ${hasErrors(bean: rec, field: 'category', 'is-invalid')}" from="${rec.constrainedProperties.category.inList}" value="${rec.category}" />
         </div>
         <div class="form-group">
             <label for="preparationTime">Zubereitungszeit</label>
@@ -37,7 +37,7 @@
         </div>
         <div class="form-group">
             <label for="difficulty">Schwierigkeit</label>
-            <g:select name="difficulty" id="difficulty" class="form-control ${hasErrors(bean: rec, field: 'difficulty', 'is-invalid')}" from="${difficulties}" value="${rec.difficulty}" />
+            <g:select name="difficulty" id="difficulty" class="form-control ${hasErrors(bean: rec, field: 'difficulty', 'is-invalid')}" from="${rec.constrainedProperties.difficulty.inList}" value="${rec.difficulty}" />
         </div>
         <div class="form-group">
             <label for="numPeople">Anzahl Personen</label>
@@ -116,7 +116,7 @@
         </div>
         <div class="form-group">
             <label for="stars">Bewertung</label>
-            <g:select name="stars" id="stars" class="form-control ${hasErrors(bean: rec, field: 'starsDropdown', 'is-invalid')}" from="${starsDropdown}" optionKey="key" optionValue="value" value="${rec.stars}" />
+            <g:select name="stars" id="stars" class="form-control ${hasErrors(bean: rec, field: 'stars', 'is-invalid')}" from="${rec.constrainedProperties.stars.inList}" value="${rec.stars}" />
         </div>
         <input type="hidden" name="photo" value="${!rec.photo ? 'example-1.jpg' : rec.photo}"/><%-- TODO upload --%>
         <button type="submit" class="btn btn-block btn-primary">Speichern</button>

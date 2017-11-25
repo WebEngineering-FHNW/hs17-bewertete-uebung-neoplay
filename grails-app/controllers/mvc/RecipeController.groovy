@@ -4,10 +4,6 @@ package mvc
 
 class RecipeController {
 
-    static categories = ["Vorspeise","Suppe","Salat","Snack","Hauptspeise (Fleisch)","Hauptspeise (vegetarisch)","Dessert","Getränk"]
-    static difficulties = ["einfach","mittel","schwer"]
-    static starsDropdown = [1:'\u2605\u2606\u2606\u2606\u2606',2:'\u2605\u2605\u2606\u2606\u2606',3:'\u2605\u2605\u2605\u2606\u2606',4:'\u2605\u2605\u2605\u2605\u2606',5:'\u2605\u2605\u2605\u2605\u2605']
-
     // Show all (Frontend)
     def index() {
         def recs = Recipe.list()
@@ -42,15 +38,7 @@ class RecipeController {
             }
         }
 
-        render(
-            view: "form",
-            model: [
-                rec: rec,
-                categories: categories,
-                difficulties: difficulties,
-                starsDropdown: starsDropdown
-            ]
-        )
+        render(view: "form", model: [rec: rec])
     }
 
     // Edit (Backend)
@@ -69,15 +57,7 @@ class RecipeController {
             }
         }
 
-        render(
-            view: "form",
-            model: [
-                rec: rec,
-                categories: categories,
-                difficulties: difficulties,
-                starsDropdown: starsDropdown
-            ]
-        )
+        render(view: "form", model: [rec: rec])
     }
 
     // Delete (Backend)
