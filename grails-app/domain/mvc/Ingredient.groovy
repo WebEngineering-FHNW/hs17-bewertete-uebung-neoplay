@@ -4,6 +4,9 @@ class Ingredient {
     BigDecimal quantity
     String unit
     String name
+    boolean deleted
+
+    static transients = ['deleted']
 
     static hasOne = [recipe: Recipe]
 

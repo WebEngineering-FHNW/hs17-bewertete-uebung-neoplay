@@ -33,6 +33,7 @@
     </div>
 
     <!-- Modal -->
+    <%-- TODO search --%>
     <div class="modal fade" id="searchModal" tabindex="-1">
         <div class="modal-dialog">
             <form action="/" method="get">

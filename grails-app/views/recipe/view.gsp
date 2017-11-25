@@ -20,10 +20,10 @@
 
     <div class="row">
         <div class="col-6">
-            <i class="fa fa-sign-language"></i> ${rec.preparationTime} Min.
+            <i class="fa fa-sign-language" title="Zubereitungszeit" data-toggle="tooltip"></i> ${rec.preparationTime} Min.
         </div>
         <div class="col-6">
-            <i class="fa fa-fire"></i> ${rec.cookingTime} Min.
+            <i class="fa fa-fire" title="Kochzeit" data-toggle="tooltip"></i> ${rec.cookingTime} Min.
         </div>
     </div>
     <div class="row">

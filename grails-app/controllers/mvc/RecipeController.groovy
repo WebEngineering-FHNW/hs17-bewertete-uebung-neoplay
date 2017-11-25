@@ -18,7 +18,7 @@ class RecipeController {
 
         // split content of textarea every two linebreaks
         // EXTERNAL https://stackoverflow.com/questions/31608678/javaandroid-how-to-i-split-a-string-by-every-two-line-breaks
-        def preparationArr = rec.preparation.split("(\\r\\n|"+System.getProperty("line.separator")+")+")
+        def preparationArr = rec.preparation.split("\\r\\n\\r\\n|\\n\\n")
 
         [rec: rec, preparationArr: preparationArr]
     }
@@ -52,7 +52,16 @@ class RecipeController {
         }
 
         if(request.post) {
+            // merge
             rec.properties = params
+            // remove ingredients
+            rec.ingredients.eachWithIndex{ v,i ->
+                if( params['ingredients[' + i + '].deleted'] == 'true' ) {
+                    v.deleted = true
+                }
+            }
+            rec.ingredients.removeAll{ it.deleted }
+            // validate & persist
             if (rec.save(flush: true)) {
                 flash.success = "Rezept erfolgreich gespeichert"
                 redirect(action: "list")

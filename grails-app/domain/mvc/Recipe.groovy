@@ -30,7 +30,7 @@ class Recipe {
         preparation(blank: true) // widget: 'textarea'
         // custom validator to validate all ingredients
         /* TODO make it work */
-        ingredients(validator: { val, obj, err ->
+        ingredients(cascade: "all-delete-orphan", validator: { val, obj, err ->
             val?.each {
                 if (!it.validate()) return false
             }

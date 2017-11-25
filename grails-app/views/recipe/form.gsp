@@ -43,6 +43,7 @@
             <label for="numPeople">Anzahl Personen</label>
             <mvc:numericField id="numPeople" name="numPeople" class="form-control ${hasErrors(bean: rec, field: 'numPeople', 'is-invalid')}" value="${rec.numPeople}" min="0" max="100" />
         </div>
+        <h5>Zutaten</h5>
         <div class="form-row">
             <div class="form-group col-3 mb-0">
                 <label>Menge</label>
@@ -55,8 +56,8 @@
             </div>
         </div>
         <g:each in="${rec.ingredients}" var="ing" status="i">
-            <g:hiddenField name='ingredients[${i}].id' value='${ing.id}'/>
             <div class="form-row">
+                <g:hiddenField name='ingredients[${i}].id' value='${ing.id}'/>
                 <div class="form-group col-3">
                     <input type="text" name="ingredients[${i}].quantity" class="form-control" value="<g:formatNumber number="${ing.quantity}" format="0.#" />"/>
                 </div>
@@ -83,11 +84,17 @@
                     </select>
                 </div>
                 <div class="form-group col-6">
-                    <input type="text" class="form-control" name="ingredients[${i}].name" value="${ing.name}">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="ingredients[${i}].name" value="${ing.name}">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" data-action="remove" data-index="${i}"><i class="fa fa-trash" title="Entfernen" data-toggle="tooltip"></i></button>
+                        </span>
+                    </div>
                 </div>
             </div>
         </g:each>
-        <%-- TODO add/remove zutat --%>
+        <div id="newIngredients"></div>
+        <p><button class="btn btn-default" data-action="add" data-count="${rec.ingredients ? rec.ingredients.size() : 0}"><i class="fa fa-plus"></i> Neue Zutat</button></p>
         <div class="form-group">
             <label for="preparation">Zubereitung</label>
             <g:textArea class="form-control ${hasErrors(bean: rec, field: 'preparation', 'is-invalid')}" id="preparation" name="preparation" value="${rec.preparation}" rows="8"/>

@@ -23,10 +23,10 @@
                         <h6>${rec.category}</h6>
                         <div class="row">
                             <div class="col-6">
-                                <p><i class="fa fa-sign-language"></i> ${rec.preparationTime} Min.</p>
+                                <p><i class="fa fa-sign-language" title="Zubereitungszeit" data-toggle="tooltip"></i> ${rec.preparationTime} Min.</p>
                             </div>
                             <div class="col-6">
-                                <p><i class="fa fa-fire"></i> ${rec.cookingTime} Min.</p>
+                                <p><i class="fa fa-fire" title="Kochzeit" data-toggle="tooltip"></i> ${rec.cookingTime} Min.</p>
                             </div>
                         </div>
                         <a href="/recipe/view?id=${rec.id}" class="btn btn-outline-primary">Zum Rezept</a>
@@ -35,6 +35,8 @@
             </div>
         </g:each>
     </div>
+
+    <%-- TODO load more --%>
 
     <div class="spinner">
         <div class="rect1"></div>
