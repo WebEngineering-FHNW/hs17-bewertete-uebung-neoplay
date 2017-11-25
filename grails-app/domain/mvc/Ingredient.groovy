@@ -8,7 +8,7 @@ class Ingredient {
     static hasOne = [recipe: Recipe]
 
     static constraints = {
-        quantity(scale: 6)
+        quantity(scale: 6, range:0..1000)
         unit(blank: false)
         name(blank: false)
     }

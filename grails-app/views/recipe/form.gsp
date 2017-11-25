@@ -43,7 +43,6 @@
             <label for="numPeople">Anzahl Personen</label>
             <mvc:numericField id="numPeople" name="numPeople" class="form-control ${hasErrors(bean: rec, field: 'numPeople', 'is-invalid')}" value="${rec.numPeople}" min="0" max="100" />
         </div>
-        <%-- TODO zutaten --%>
         <div class="form-row">
             <div class="form-group col-3 mb-0">
                 <label>Menge</label>
@@ -55,60 +54,40 @@
                 <label>Zutat</label>
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-3">
-                <input type="number" class="form-control">
+        <g:each in="${rec.ingredients}" var="ing" status="i">
+            <g:hiddenField name='ingredients[${i}].id' value='${ing.id}'/>
+            <div class="form-row">
+                <div class="form-group col-3">
+                    <input type="text" name="ingredients[${i}].quantity" class="form-control" value="<g:formatNumber number="${ing.quantity}" format="0.#" />"/>
+                </div>
+                <div class="form-group col-3">
+                    <select class="form-control" name="ingredients[${i}].unit">
+                        <optgroup label="Gramm">
+                            <option value="g" ${ing.unit.equals("g") ? "selected='selected'" : ""}>g</option>
+                            <option value="kg" ${ing.unit.equals("kg") ? "selected='selected'" : ""}>kg</option>
+                        </optgroup>
+                        <optgroup label="Löffel">
+                            <option value="EL" ${ing.unit.equals("EL") ? "selected='selected'" : ""}>EL</option>
+                            <option value="TL" ${ing.unit.equals("TL") ? "selected='selected'" : ""}>TL</option>
+                            <option value="Prise" ${ing.unit.equals("Prise") ? "selected='selected'" : ""}>Prise</option>
+                        </optgroup>
+                        <optgroup label="Liter">
+                            <option value="ml" ${ing.unit.equals("ml") ? "selected='selected'" : ""}>ml</option>
+                            <option value="cl" ${ing.unit.equals("cl") ? "selected='selected'" : ""}>cl</option>
+                            <option value="dl" ${ing.unit.equals("dl") ? "selected='selected'" : ""}>dl</option>
+                            <option value="l" ${ing.unit.equals("l") ? "selected='selected'" : ""}>l</option>
+                        </optgroup>
+                        <optgroup label="Andere">
+                            <option value="Stk" ${ing.unit.equals("Stk") ? "selected='selected'" : ""}>Stk</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group col-6">
+                    <input type="text" class="form-control" name="ingredients[${i}].name" value="${ing.name}">
+                </div>
             </div>
-            <div class="form-group col-3">
-                <select class="form-control">
-                    <optgroup label="Gramm">
-                        <option value="g">g</option>
-                        <option value="kg">kg</option>
-                    </optgroup>
-                    <optgroup label="Löffel">
-                        <option value="EL">EL</option>
-                        <option value="TL">TL</option>
-                        <option value="Prise">Prise</option>
-                    </optgroup>
-                    <optgroup label="Liter">
-                        <option value="ml">ml</option>
-                        <option value="cl">cl</option>
-                        <option value="dl">dl</option>
-                        <option value="l">l</option>
-                    </optgroup>
-                </select>
-            </div>
-            <div class="form-group col-6">
-                <input type="text" class="form-control">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-3">
-                <input type="number" class="form-control">
-            </div>
-            <div class="form-group col-3">
-                <select class="form-control">
-                    <optgroup label="Gramm">
-                        <option value="g">g</option>
-                        <option value="kg">kg</option>
-                    </optgroup>
-                    <optgroup label="Löffel">
-                        <option value="EL">EL</option>
-                        <option value="TL">TL</option>
-                        <option value="Prise">Prise</option>
-                    </optgroup>
-                    <optgroup label="Liter">
-                        <option value="ml">ml</option>
-                        <option value="cl">cl</option>
-                        <option value="dl">dl</option>
-                        <option value="l">l</option>
-                    </optgroup>
-                </select>
-            </div>
-            <div class="form-group col-6">
-                <input type="text" class="form-control">
-            </div>
-        </div>
+        </g:each>
+        <%-- TODO add/remove zutat --%>
         <div class="form-group">
             <label for="preparation">Zubereitung</label>
             <g:textArea class="form-control ${hasErrors(bean: rec, field: 'preparation', 'is-invalid')}" id="preparation" name="preparation" value="${rec.preparation}" rows="8"/>
