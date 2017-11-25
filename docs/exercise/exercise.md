@@ -38,11 +38,15 @@ How to test the project: `grailsw test-app`
 
 Project description: (if other than `/index.html`)
 
+**Hinweis**: Damit der Foto-Upload funktioniert, ist es momentan notwendig, einen Pfad in `grails-app/services/mvc/FileUploadService.groovy` anzupassen.
+
 External contributions:
 
 Other comments: 
 
 I'm particular proud of:
+* Dynamisches Hinzufügen von Zutaten im Formular (1:n)
+* Foto-Upload bei Rezept
 * Eigene TagLib für spezielle Formular-Felder
 
 ## Project grading 

@@ -104,7 +104,12 @@
             <label for="stars">Bewertung</label>
             <g:select name="stars" id="stars" class="form-control ${hasErrors(bean: rec, field: 'stars', 'is-invalid')}" from="${rec.constrainedProperties.stars.inList}" value="${rec.stars}" />
         </div>
-        <input type="hidden" name="photo" value="${!rec.photo ? 'example-1.jpg' : rec.photo}"/><%-- TODO upload --%>
+        <div class="form-group">
+            <input type="hidden" name="photo" value="${!rec.photo ? '_default.jpg' : rec.photo}"/>
+            <label for="photoup">Neues Foto</label>
+            <input type="file" name="photoup" id="photoup" class="form-control">
+            <small class="form-text text-muted">Nur .jpg-Dateien, empfohlene Grösse 900 x 600 Pixel</small>
+        </div>
         <button type="submit" class="btn btn-block btn-primary">Speichern</button>
     </form>
 

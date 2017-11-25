@@ -6,6 +6,8 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class RecipeController {
 
+    FileUploadService fileUploadService
+
     // Show all (Frontend)
     def index() {
         def searchString = params.search ? params.search : ''
@@ -35,6 +37,13 @@ class RecipeController {
         def rec = new Recipe(params)
 
         if(request.post) {
+            // upload file
+            def uploadedPhoto = request.getFile('photoup')
+            if (!uploadedPhoto.isEmpty()) {
+                rec.photo = fileUploadService.uploadFile(uploadedPhoto, UUID.randomUUID().toString()+".jpg", "images/rezepte")
+            }
+
+            // persist
             if (rec.save(flush: true)) {
                 flash.success = "Rezept erfolgreich gespeichert"
                 redirect(action: "list")
@@ -53,8 +62,10 @@ class RecipeController {
         }
 
         if(request.post) {
+
             // merge
             rec.properties = params
+
             // remove ingredients
             rec.ingredients.eachWithIndex{ v,i ->
                 if( params['ingredients[' + i + '].deleted'] == 'true' ) {
@@ -62,11 +73,19 @@ class RecipeController {
                 }
             }
             rec.ingredients.removeAll{ it.deleted }
+
+            // upload file
+            def uploadedPhoto = request.getFile('photoup')
+            if (!uploadedPhoto.isEmpty()) {
+                rec.photo = fileUploadService.uploadFile(uploadedPhoto, UUID.randomUUID().toString()+".jpg", "images/rezepte")
+            }
+
             // validate & persist
             if (rec.save(flush: true)) {
                 flash.success = "Rezept erfolgreich gespeichert"
                 redirect(action: "list")
             }
+
         }
 
         render(view: "form", model: [rec: rec])
