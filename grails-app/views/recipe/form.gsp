@@ -2,13 +2,13 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Kochbuch APP - Backend - Form</title>
+    <title>Backend - Kochbuch APP</title>
 </head>
 <body>
 
-    <h3>Rezept erfassen/bearbeiten</h3>
+    <h3>Rezept <g:if test="${actionName == 'add'}">erfassen</g:if><g:else>bearbeiten</g:else></h3>
 
-    <g:form action="form" id="${rec.id}" class="mb-3">
+    <form action="" method="POST" class="mb-3" enctype="multipart/form-data">
         <div class="form-group">
             <label for="title">Titel</label>
             <g:textField name="title" id="title" class="form-control" value="${rec.title}"/>
@@ -109,7 +109,7 @@
             <g:select name="stars" id="stars" class="form-control" from="${starsDropdown}" optionKey="key" optionValue="value" value="${rec.stars}" />
         </div>
         <button type="submit" class="btn btn-block btn-primary">Speichern</button>
-    </g:form>
+    </form>
 
     <p>
         <a href="/recipe/list" class="btn btn-outline-primary"><i class="fa fa-chevron-left"></i> zurück</a>
