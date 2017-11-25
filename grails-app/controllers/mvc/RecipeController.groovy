@@ -1,5 +1,7 @@
 package mvc
 
+import org.springframework.dao.DataIntegrityViolationException
+
 // controller inspired by http://grails.asia/grails-tutorial-for-beginners-scaffolding/
 
 class RecipeController {
@@ -62,7 +64,17 @@ class RecipeController {
 
     // Delete (Backend)
     def delete() {
-        // TODO delete
+        def rec = Recipe.get(params.id)
+        if (!rec) {
+            flash.danger = "Rezept nicht gefunden"
+        } else {
+            try {
+                rec.delete(flush: true)
+                flash.success = "Rezept geloescht"
+            } catch (DataIntegrityViolationException e) {
+                flash.danger = "Rezept konnte nicht geloescht werden"
+            }
+        }
         redirect(action: "list")
     }
 }
