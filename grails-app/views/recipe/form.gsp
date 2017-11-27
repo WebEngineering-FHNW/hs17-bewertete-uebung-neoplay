@@ -18,7 +18,7 @@
         </div>
     </g:hasErrors>
 
-    <form action="" method="POST" class="mb-3" enctype="multipart/form-data">
+    <form action="/recipe/${actionName}<g:if test="${params.id}">?id=${params.id}</g:if>" method="POST" class="mb-3" enctype="multipart/form-data">
         <div class="form-group">
             <label for="title">Titel</label>
             <g:textField name="title" id="title" class="form-control ${hasErrors(bean: rec, field: 'title', 'is-invalid')}" value="${rec.title}"/>
@@ -64,24 +64,24 @@
                 <div class="form-group col-3">
                     <select class="form-control" name="ingredients[${i}].unit">
                         <optgroup label="Gramm">
-                            <option value="g" ${ing.unit.equals("g") ? "selected='selected'" : ""}>g</option>
-                            <option value="kg" ${ing.unit.equals("kg") ? "selected='selected'" : ""}>kg</option>
+                            <option value="g" ${ing.unit.equals("g") ? "selected" : ""}>g</option>
+                            <option value="kg" ${ing.unit.equals("kg") ? "selected" : ""}>kg</option>
                         </optgroup>
                         <optgroup label="Löffel">
-                            <option value="EL" ${ing.unit.equals("EL") ? "selected='selected'" : ""}>EL</option>
-                            <option value="TL" ${ing.unit.equals("TL") ? "selected='selected'" : ""}>TL</option>
-                            <option value="Prise" ${ing.unit.equals("Prise") ? "selected='selected'" : ""}>Prise</option>
+                            <option value="EL" ${ing.unit.equals("EL") ? "selected" : ""}>EL</option>
+                            <option value="TL" ${ing.unit.equals("TL") ? "selected" : ""}>TL</option>
+                            <option value="Prise" ${ing.unit.equals("Prise") ? "selected" : ""}>Prise</option>
                         </optgroup>
                         <optgroup label="Liter">
-                            <option value="ml" ${ing.unit.equals("ml") ? "selected='selected'" : ""}>ml</option>
-                            <option value="cl" ${ing.unit.equals("cl") ? "selected='selected'" : ""}>cl</option>
-                            <option value="dl" ${ing.unit.equals("dl") ? "selected='selected'" : ""}>dl</option>
-                            <option value="l" ${ing.unit.equals("l") ? "selected='selected'" : ""}>l</option>
+                            <option value="ml" ${ing.unit.equals("ml") ? "selected" : ""}>ml</option>
+                            <option value="cl" ${ing.unit.equals("cl") ? "selected" : ""}>cl</option>
+                            <option value="dl" ${ing.unit.equals("dl") ? "selected" : ""}>dl</option>
+                            <option value="l" ${ing.unit.equals("l") ? "selected" : ""}>l</option>
                         </optgroup>
                         <optgroup label="Andere">
-                            <option value="Stk" ${ing.unit.equals("Stk") ? "selected='selected'" : ""}>Stk</option>
-                            <option value="Pk" ${ing.unit.equals("Pk") ? "selected='selected'" : ""}>Pk</option>
-                            <option value="Bund" ${ing.unit.equals("Bund") ? "selected='selected'" : ""}>Bund</option>
+                            <option value="Stk" ${ing.unit.equals("Stk") ? "selected" : ""}>Stk</option>
+                            <option value="Pk" ${ing.unit.equals("Pk") ? "selected" : ""}>Pk</option>
+                            <option value="Bund" ${ing.unit.equals("Bund") ? "selected" : ""}>Bund</option>
                         </optgroup>
                     </select>
                 </div>
