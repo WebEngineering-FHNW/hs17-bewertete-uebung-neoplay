@@ -30,7 +30,7 @@ Confirmed.
 
 Sounds delicious! Can't wait to see the bootstrap data :-)
 
-## Project delivery <to be filled by student>
+## Project delivery
 
 **Vorbereitung**: Damit der Foto-Upload funktioniert, ist es momentan notwendig, einen Pfad in `grails-app/services/mvc/FileUploadService.groovy` anzupassen.
 
@@ -47,6 +47,7 @@ External contributions:
 Other comments: 
 
 I'm particular proud of:
+* Dynamisches Nachladen weiterer Rezepte auf der Übersicht
 * Dynamisches Hinzufügen von Zutaten im Formular (1:n)
 * Foto-Upload bei Rezept
 * Eigene TagLib für spezielle Formular-Felder
