@@ -28,12 +28,6 @@ class Recipe {
         numPeople(range:1..100)
         stars(min: 1, max: 5, inList: [1,2,3,4,5])
         preparation(blank: true) // widget: 'textarea'
-        // custom validator to validate all ingredients
-        /* TODO make it work */
-        ingredients(cascade: "all-delete-orphan", validator: { val, obj, err ->
-            val?.each {
-                if (!it.validate()) return false
-            }
-        })
+        ingredients(cascade: "all-delete-orphan")
     }
 }

@@ -8,7 +8,7 @@ class Ingredient {
 
     static transients = ['deleted']
 
-    static hasOne = [recipe: Recipe]
+    static belongsTo = [recipe: Recipe]
 
     static constraints = {
         quantity(scale: 6, range:0..1000)
