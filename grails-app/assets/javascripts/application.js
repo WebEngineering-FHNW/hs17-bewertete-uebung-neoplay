@@ -15,6 +15,32 @@ $().ready(function () {
     // Popper Tooltips
     $('[data-toggle="tooltip"]').tooltip();
 
+    // Load More
+    var loadMore = $('[data-action="load-more"]');
+    if(loadMore.length) {
+        var page = 1;
+        $('body').on('click', '[data-action="load-more"]', function(e) {
+            $('[data-action="load-more"]').hide();
+            $('.spinner').show();
+            page++;
+            $.ajax({
+                method: 'GET',
+                url: "/recipe/index?page="+page,
+                cache: false,
+                success: function(data) {
+                    // simulate delay ;-)
+                    setTimeout(function(){
+                        $('.spinner').hide();
+                        if(data.trim().length) {
+                            $('#recipeContainer').append(data);
+                            $('[data-action="load-more"]').show();
+                        }
+                    }, 800);
+                }
+            });
+        });
+    }
+
     // Remove Ingredient
     $('body').on('click', '[data-action="remove"]', function(e) {
         e.preventDefault();

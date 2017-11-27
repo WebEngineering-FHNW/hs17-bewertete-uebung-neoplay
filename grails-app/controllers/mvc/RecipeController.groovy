@@ -11,8 +11,15 @@ class RecipeController {
     // Show all (Frontend)
     def index() {
         def searchString = params.search ? params.search : ''
-        def recs = Recipe.findAllByTitleIlike('%'+searchString+'%')
-        [recs: recs]
+        def offset = params.page ? 4*Integer.parseInt(params.page)-4 : 0
+        def recs = Recipe.findAllByTitleIlike('%'+searchString+'%', [max: 4, offset: offset])
+
+        if(offset==0)
+            // render html with template
+            [recs: recs]
+        else
+            // render just recipe html elements (dynamic "load more")
+            render model: [recs: recs], view: "index_more"
     }
 
     // Show one (Frontend)

@@ -69,6 +69,10 @@ button.btn {
   font-size: 10px;
 }
 
+.spinner {
+    display: none;
+}
+
 .spinner > div {
   background-color: #007bff;
   height: 100%;
