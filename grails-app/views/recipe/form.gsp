@@ -80,6 +80,8 @@
                         </optgroup>
                         <optgroup label="Andere">
                             <option value="Stk" ${ing.unit.equals("Stk") ? "selected='selected'" : ""}>Stk</option>
+                            <option value="Pk" ${ing.unit.equals("Pk") ? "selected='selected'" : ""}>Pk</option>
+                            <option value="Bund" ${ing.unit.equals("Bund") ? "selected='selected'" : ""}>Bund</option>
                         </optgroup>
                     </select>
                 </div>

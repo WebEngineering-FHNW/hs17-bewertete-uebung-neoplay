@@ -53,6 +53,8 @@ $().ready(function () {
             '                        </optgroup>\n' +
             '                        <optgroup label="Andere">\n' +
             '                            <option value="Stk">Stk</option>\n' +
+            '                            <option value="Pk">Pk</option>\n' +
+            '                            <option value="Bund">Bund</option>\n' +
             '                        </optgroup>\n' +
             '                    </select>\n' +
             '                </div>\n' +

@@ -41,7 +41,7 @@
             <tbody>
                 <g:each in="${rec.ingredients}" var="ing">
                     <tr>
-                        <td>${ing.quantity}</td>
+                        <td class="text-right"><g:formatNumber number="${ing.quantity}" format="0.#" /></td>
                         <td>${ing.unit}</td>
                         <td>${ing.name}</td>
                     </tr>
