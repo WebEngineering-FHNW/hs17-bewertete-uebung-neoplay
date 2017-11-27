@@ -33,6 +33,7 @@ $().ready(function () {
                         $('.spinner').hide();
                         if(data.trim().length) {
                             $('#recipeContainer').append(data);
+                            $('body').addClass('gebAjaxCompleted'); // for integration testing
                             $('[data-action="load-more"]').show();
                         }
                     }, 800);
