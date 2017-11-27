@@ -1,3 +1,8 @@
+---
+layout: default
+title: Kochbuch APP
+---
+
 #Test
 
 ##Test
