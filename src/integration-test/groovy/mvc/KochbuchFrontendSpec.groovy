@@ -27,6 +27,7 @@ class KochbuchFrontendSpec extends GebSpec {
 
     // TODO make this unit test working
     /*void "loading more recipes (AJAX)"() {
+        driver.javascriptEnabled = true
         when:"The 'load more' button is clicked"
             go '/'
             $('[data-action="load-more"]').click();
