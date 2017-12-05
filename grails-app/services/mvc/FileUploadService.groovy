@@ -4,9 +4,10 @@ package mvc
 
 import org.springframework.web.multipart.MultipartFile
 import grails.web.context.ServletContextHolder
-import java.util.UUID
 
 class FileUploadService {
+
+    final static public String storageBasePath = './grails-app/assets/'
 
     boolean transactional = true
 
@@ -14,7 +15,7 @@ class FileUploadService {
 
         def servletContext = ServletContextHolder.servletContext
         //def storagePath = servletContext.getRealPath(destinationDirectory)
-        def storagePath = 'C:/Users/Urs/Documents/GitHub/hs17-bewertete-uebung-neoplay/grails-app/assets/'+destinationDirectory
+        def storagePath = storageBasePath + destinationDirectory
 
         // Create storage path directory if it does not exist
         def storagePathDirectory = new File(storagePath)

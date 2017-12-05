@@ -32,15 +32,13 @@ Sounds delicious! Can't wait to see the bootstrap data :-)
 
 ## Project delivery
 
-**Vorbereitung**: Damit der Foto-Upload funktioniert, ist es momentan notwendig, einen Pfad in `grails-app/services/mvc/FileUploadService.groovy` anzupassen.
-
 **Hinweis**: Die Applikation ist für Smartphones/Tablets optimiert. Bitte Fensterbreite reduzieren.
 
 How to start the project: `grailsw run-app`
 
 How to test the project: `grailsw test-app`
 
-Project description: (if other than `/index.html`)
+Project description: Auf [GitHub Pages](https://webengineering-fhnw.github.io/hs17-bewertete-uebung-neoplay/)
 
 External contributions:
 
