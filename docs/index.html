@@ -2,32 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Kochbuch APP</title>
+    <title>Kochbuch APP - Documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
     <link href='style.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
     <header>
-        <h1>Kochbuch APP</h1>
+        <h1><img src="kochbuch-logo.svg" alt="Kochbuch APP Logo"> Kochbuch APP</h1>
         <p>Grails-Applikation im Rahmen des Moduls 'Web Engineering' an der Fachhochschule Nordwestschweiz FHNW</p>
         <a href="https://github.com/WebEngineering-FHNW/hs17-bewertete-uebung-neoplay/" target="_blank">GitHub Repo</a>
     </header>
 
-    <section>
-        <h2></h2>
-        <p></p>
-    </section>
+    <article>
 
-    <section>
-        <h2></h2>
-        <p></p>
-    </section>
+        <section>
+            <h2>Projektbeschreibung</h2>
+            <h3>Kochbuch-Webapp</h3>
+            <p><strong>Simple CRUD-Applikation mit 'Frontend' und 'Backend' (mobile first)</strong></p>
+            <p>Frontend</p>
+            <ul>
+                <li>Rezepte-Übersicht mit Rezeptname, Bild, Metadaten und Link zur Detail-Ansicht</li>
+                <li>Mögliche Erweiterungen:
+                    <ul>
+                        <li>Suchfunktion nach Rezeptname</li>
+                        <li>"Mehr laden"-Button (dynamisches Nachladen)</li>
+                        <li>Mengen-Umrechner für Zutaten auf Rezept</li>
+                    </ul>
+                </li>
+                <li>Detail-Ansicht mit Rezeptname, Bild, Metadaten, Zutaten-Liste und Zubereitung</li>
+            </ul>
+            <p>Backend</p>
+            <ul>
+                <li>Add/Edit/Delete von Rezepten und deren Zutaten (1:n)</li>
+                <li>Mögliche Erweiterungen:
+                    <ul>
+                        <li>Bild-Upload (ansonsten Auswahl einiger Default-Bilder)</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>Zusätzliche Abhängigkeiten: Bootstrap, jQuery</p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Projektabgabe</h2>
+            <p><strong>Hinweis</strong>: Die Applikation ist für Smartphones/Tablets optimiert. Bitte Fensterbreite reduzieren.</p>
+            <p>How to start the project: <code>grailsw run-app</code></p>
+            <p>How to test the project: <code>grailsw test-app</code></p>
+            <p>Project description: Auf <a target="_blank" href="https://webengineering-fhnw.github.io/hs17-bewertete-uebung-neoplay/">GitHub Pages</a></p>
+        </section>
+
+        <hr>
+
+    </article>
 
     <footer>
-        <em>Seite erstellt von Urs Gürtler, Dezember 2017</em>
+        Seite erstellt von Urs Gürtler, Dezember 2017
     </footer>
+
 </body>
 </html>
 
