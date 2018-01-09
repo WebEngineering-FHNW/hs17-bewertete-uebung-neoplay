@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <style>
+        body {
+            font-family:Arial;
+        }
+        h1 {
+            padding:0 0 0.3em 0;
+            margin:0;
+        }
+        #status {
+            font-size:18px;
+            padding:1em 0;
+            text-align:center;
+        }
+        .card {
+            margin:0.2em;
+            background-color:silver;
+            float:left;
+            width:120px;
+            height:120px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="status">
+    <h1>Memory</h1>
+    Anzahl Versuche: <span>0</span>
+</div>
+<div id="memory"></div>
+
+<script>
+    $().ready(function() {
+
+        init(12);
+        startGame();
+
+    });
+
+    init = function(numpairs) {
+        var numcards = numpairs*2;
+        var newcards = [];
+
+        // add cards
+        for(var i=0; i<numcards; i++) {
+            newcards.push(i);
+            $('#memory').append('<div class="card" data-id="'+i+'"></div>');
+        }
+
+        // shuffle cards
+        shuffle(newcards);
+
+        // add image
+        var curimg = 0;
+        for(var i=0; i<numcards; i++) {
+            if(i%2==0) {
+                curimg = Math.floor(Math.random() * 85);
+            }
+            $('.card[data-id="'+newcards.pop()+'"]').attr('data-image',curimg);
+        }
+    }
+
+    startGame = function() {
+
+        var opencards = [];
+
+        $('#memory').on('click','.card', function(e) {
+            // two cards flipped?
+            if(opencards.length==2) {
+                var card1 = opencards.pop();
+                var card2 = opencards.pop();
+                // pair matches?
+                if ($('.card[data-id="' + card1 + '"]').attr('data-image') !== $('.card[data-id="' + card2 + '"]').attr('data-image')) {
+                    $('.card[data-id="' + card1 + '"]').css('background-color', 'silver').css('background-image', 'none');
+                    $('.card[data-id="' + card2 + '"]').css('background-color', 'silver').css('background-image', 'none');
+                }
+            }
+            $(this).css('background-image','url("https://picsum.photos/120/120/?image='+$(this).attr('data-image')+'")');
+            opencards.push($(this).attr('data-id'));
+            // count up
+            if(opencards.length==2) {
+                $('#status span').text(parseInt($('#status span').text())+1);
+            }
+        });
+    }
+
+    /**
+     * Shuffles array in place.
+     * @param {Array} a items An array containing the items.
+     */
+    function shuffle(a) {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+    }
+</script>
+
+</body>
+</html>
